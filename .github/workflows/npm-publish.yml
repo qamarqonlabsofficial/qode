@@ -10,7 +10,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          registry-url: 'https://npmjs.org'
+          registry-url: 'https://registry.npmjs.org'
       - run: npm install
       - run: npm run prepublishOnly # This runs tsup
       - run: npm publish
