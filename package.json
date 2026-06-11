@@ -20,10 +20,11 @@
     "commander": "^12.0.0",
     "fs-extra": "^11.2.0",
     "picocolors": "^1.0.1",
+    "qnlabs": ".",
     "typescript": "^6.0.3"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "keywords": [
     "cli",
@@ -36,7 +37,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/qamarqonlabs/qnlabs"
+    "url": "https://github.com/qamarqonlabsofficial/qnlabs"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
