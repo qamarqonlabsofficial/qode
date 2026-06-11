@@ -1,0 +1,45 @@
+{
+  "name": "qnlabs",
+  "version": "0.3.4",
+  "description": "GitHub-based file distribution CLI — pull any file from any repo directly into your project",
+  "bin": {
+    "qnlabs": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "build": "tsup",
+    "build:watch": "tsup --watch",
+    "prepublishOnly": "tsup"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "@octokit/rest": "^21.0.0",
+    "commander": "^12.0.0",
+    "fs-extra": "^11.2.0",
+    "picocolors": "^1.0.1",
+    "typescript": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "cli",
+    "github",
+    "registry",
+    "file-distribution",
+    "devtools"
+  ],
+  "author": "Qamar Zia <qamar@qamarqonlabs.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qamarqonlabs/qnlabs"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "tsup": "^8.5.1"
+  }
+}

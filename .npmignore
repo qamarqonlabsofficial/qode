@@ -1,0 +1,7 @@
+src/
+build.ts
+install.sh
+install.ps1
+.github/
+*.md
+!README.md
