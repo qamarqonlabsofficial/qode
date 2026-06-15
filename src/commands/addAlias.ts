@@ -195,11 +195,11 @@ const RELOAD_CMDS: Record<string, string> = {
 // ─── Command ──────────────────────────────────────────────────────────────────
 
 export default async function addAlias(
-  alias: string,
-  command: string,
-  opts: AddAliasOptions,
+  alias?: string,
+  command?: string,
+  opts?: AddAliasOptions,
 ): Promise<void> {
-  const { yes = false, overwrite = false } = opts;
+  const { yes = false, overwrite = false } = opts || {};
   const detectedShell = detectShell();
 
   // ── Collect alias ──────────────────────────────────────────────────────────
@@ -237,7 +237,7 @@ export default async function addAlias(
   }
 
   // ── Shell selection ────────────────────────────────────────────────────────
-  let selectedShell = opts.shell ?? "";
+  let selectedShell = opts?.shell ?? "";
 
   if (!selectedShell) {
     const result = await select({
@@ -261,7 +261,7 @@ export default async function addAlias(
   const profile = SHELL_PROFILES[selectedShell];
 
   // ── Profile file resolution ────────────────────────────────────────────────
-  let targetFile = opts.file ?? "";
+  let targetFile = opts?.file ?? "";
 
   if (!targetFile) {
     const profileFiles = resolveProfileFiles(selectedShell);
@@ -326,7 +326,7 @@ export default async function addAlias(
   }
 
   // ── Preview ────────────────────────────────────────────────────────────────
-  const aliasLine = profile.aliasFormat(alias, command);
+  const aliasLine = profile?.aliasFormat(alias, command);
 
   note(
     [

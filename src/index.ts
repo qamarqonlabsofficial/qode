@@ -140,6 +140,10 @@ if (process.argv.length <= 2) {
           label: `${color.yellow("status")}       See tracked files and project state`,
         },
         {
+          value: "alias",
+          label: `${color.yellow("alias")}       Add any alias on any operating system`,
+        },
+        {
           value: "help",
           label: `${color.dim("help")}          Learn about all commands`,
         },
@@ -169,6 +173,9 @@ if (process.argv.length <= 2) {
         break;
       case "help":
         await helpCommand();
+        break;
+      case "alias":
+        await addAlias();
         break;
     }
   })();
