@@ -13,7 +13,7 @@ import addAlias, { type AddAliasOptions } from "./commands/addAlias";
 const program = new Command();
 
 program
-  .name("qnlabs")
+  .name("qode")
   .description(
     "The GitHub-based file distribution CLI for QamarQonLabs — and anyone else.",
   )
@@ -22,7 +22,7 @@ program
 // ─── init ───────────────────────────────────────────────────────────────────
 program
   .command("init")
-  .description("Initialize qnlabs.json in the current project")
+  .description("Initialize qode.json in the current project")
   .action(async () => {
     await initCommand();
   });
@@ -43,10 +43,10 @@ program
     "after",
     `
 Examples:
-  $ qnlabs alias ll "ls -la"
-  $ qnlabs alias gst "git status" -s zsh
-  $ qnlabs alias serve "npx serve ." -s bash -f ~/.bashrc -y
-  $ qnlabs alias k kubectl -s zsh -yo
+  $ qode alias ll "ls -la"
+  $ qode alias gst "git status" -s zsh
+  $ qode alias serve "npx serve ." -s bash -f ~/.bashrc -y
+  $ qode alias k kubectl -s zsh -yo
 `,
   )
   .option(
@@ -106,10 +106,10 @@ program
   });
 
 // ─── Default interactive mode (no command typed) ─────────────────────────────
-// When the user just types `qnlabs` with no arguments, show a menu.
+// When the user just types `qode` with no arguments, show a menu.
 if (process.argv.length <= 2) {
   (async () => {
-    intro(color.bgCyan(color.black(" qnlabs — GitHub file distribution CLI ")));
+    intro(color.bgCyan(color.black(" qode — GitHub file distribution CLI ")));
     intro(
       color.dim(
         "Pull any file from any GitHub repo. No manual git cloning required.",
@@ -129,7 +129,7 @@ if (process.argv.length <= 2) {
         },
         {
           value: "init",
-          label: `${color.green("init")}         Set up qnlabs in this project`,
+          label: `${color.green("init")}         Set up qode in this project`,
         },
         {
           value: "sources",

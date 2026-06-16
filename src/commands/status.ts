@@ -5,7 +5,7 @@ import { readConfig, detectTargetBase } from "../utils/config";
 import type { AddedFile } from "../types/sourcetype";
 
 export async function statusCommand() {
-  intro(color.bgGreen(color.black(" qnlabs status ")));
+  intro(color.bgGreen(color.black(" qode status ")));
 
   let config;
   try {
@@ -60,7 +60,7 @@ export async function statusCommand() {
     }
   } else {
     note(
-      `No files added yet. Run ${color.cyan("qnlabs add")} to pull files.`,
+      `No files added yet. Run ${color.cyan("qode add")} to pull files.`,
       "Added files",
     );
   }

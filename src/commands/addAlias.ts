@@ -168,7 +168,7 @@ function writeAliasToFile(
   const comment = shellName === "cmd.exe" ? "::" : "#";
   fs.appendFileSync(
     filePath,
-    `\n${comment} Added by qnlabs\n${aliasLine}\n`,
+    `\n${comment} Added by qode\n${aliasLine}\n`,
     "utf8",
   );
 
@@ -280,7 +280,7 @@ export default async function addAlias(
     } else {
       // None exist — ask which to create
       const result = await select({
-        message: `No profile file found. Which one should ${color.cyan("qnlabs")} create?`,
+        message: `No profile file found. Which one should ${color.cyan("qode")} create?`,
         options: profileFiles.map((f) => ({ value: f, label: f })),
       });
       if (typeof result !== "string") process.exit(0);

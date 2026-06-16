@@ -11,10 +11,10 @@ export async function initCommand() {
     color.bgCyan(color.black("______QamarQonLabs CLI - initializing______")),
   );
   const cwd = process.cwd();
-  const config = path.join(cwd, "qnlabs.json");
+  const config = path.join(cwd, "qode.json");
   const isInitialized = fs.existsSync(config);
   if (isInitialized) {
-    outro(color.red("Project is already initialized found: qnlabs.json"));
+    outro(color.red("Project is already initialized found: qode.json"));
     note(color.red("REASON: Already intialized."), "EXITING");
     return;
   } else {
@@ -30,5 +30,5 @@ export async function initCommand() {
   fs.writeJson(config, await initConf);
   const gitIgnore = path.join(cwd, ".gitignore");
   const gitIgnoreContent = fs.readFileSync(gitIgnore, "utf-8");
-  fs.writeFileSync(gitIgnore, gitIgnoreContent + "\n\n# qnlabs\n\nqnlabs.json");
+  fs.writeFileSync(gitIgnore, gitIgnoreContent + "\n\n# qode\n\nqode.json");
 }

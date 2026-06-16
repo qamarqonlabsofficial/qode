@@ -2,7 +2,7 @@ import fs from "fs-extra";
 import path from "path";
 import type { QnlabsConfig, AddedFile } from "../types/sourcetype";
 
-const CONFIG_FILENAME = "qnlabs.json";
+const CONFIG_FILENAME = "qode.json";
 
 export function getConfigPath(cwd = process.cwd()): string {
   return path.join(cwd, CONFIG_FILENAME);
@@ -15,7 +15,7 @@ export function configExists(cwd = process.cwd()): boolean {
 export async function readConfig(cwd = process.cwd()): Promise<QnlabsConfig> {
   const configPath = getConfigPath(cwd);
   if (!fs.existsSync(configPath)) {
-    throw new Error(`No qnlabs.json found in ${cwd}. Run "qnlabs init" first.`);
+    throw new Error(`No qode.json found in ${cwd}. Run "qode init" first.`);
   }
   return fs.readJson(configPath) as Promise<QnlabsConfig>;
 }

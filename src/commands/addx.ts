@@ -6,7 +6,7 @@ import { interactiveFileSelector } from "./helpers/fileSelector";
 import type { sourceType } from "../types/sourcetype";
 
 export async function addxCommand(repoArg?: string, tokenArg?: string) {
-  intro(color.bgMagenta(color.black(" qnlabs addx — one-shot fetch ")));
+  intro(color.bgMagenta(color.black(" qode addx — one-shot fetch ")));
 
   note(
     "Fetch files from any GitHub repo without saving it to your config.\n" +
@@ -120,7 +120,7 @@ export async function addxCommand(repoArg?: string, tokenArg?: string) {
   await interactiveFileSelector({
     source,
     targetBase,
-    trackInConfig: false, // addx never writes to qnlabs.json
+    trackInConfig: false, // addx never writes to qode.json
   });
 
   outro(color.magenta("Done! Files fetched without touching your config."));

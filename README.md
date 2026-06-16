@@ -1,4 +1,4 @@
-# qnlabs CLI
+# qode CLI
 
 > Pull any file from any GitHub repo directly into your project — no manual cloning, no copy-pasting.
 
@@ -8,11 +8,11 @@ A file distribution CLI built for developers who maintain component registries, 
 
 ## Why this exists
 
-Every team eventually builds a private component library, a shared utils folder, or a set of configs they copy across projects. qnlabs makes that distribution first-class:
+Every team eventually builds a private component library, a shared utils folder, or a set of configs they copy across projects. qode makes that distribution first-class:
 
 - **No npm publish required** — your files live in a GitHub repo, that's it
 - **Works with private repos** — PAT auth built in
-- **Tracks what you've pulled** — `qnlabs status` shows you exactly what came from where
+- **Tracks what you've pulled** — `qode status` shows you exactly what came from where
 - **One-shot pulls** — `addx` lets you grab anything from any public repo without touching config
 
 ---
@@ -21,10 +21,10 @@ Every team eventually builds a private component library, a shared utils folder,
 
 ```bash
 # Via npm (global)
-npm install -g @qamarqonlabs/qnlabs
+npm install -g @qamarqonlabs/qode
 
 # Or run directly with bunx / npx
-bunx @qamarqonlabs/qnlabs
+bunx @qamarqonlabs/qode
 ```
 
 ---
@@ -33,20 +33,20 @@ bunx @qamarqonlabs/qnlabs
 
 ```bash
 # 1. In your project root:
-qnlabs init
+qode init
 
 # 2. Pull files from your registered source:
-qnlabs add
+qode add
 
 # 3. One-shot fetch (no config needed):
-qnlabs addx qamarqonlabs/ui-kit
+qode addx qamarqonlabs/ui-kit
 ```
 
 ---
 
 ## Commands
 
-### `qnlabs` (no arguments)
+### `qode` (no arguments)
 
 Launches a full interactive menu — no need to remember command names.
 
@@ -54,7 +54,7 @@ Launches a full interactive menu — no need to remember command names.
 ? What do you want to do?
   add          Pull files from configured sources
   addx         One-shot fetch from any repo (no config needed)
-  init         Set up qnlabs in this project
+  init         Set up qode in this project
   sources      View / manage your registered repos
   status       See tracked files and project state
   help         Learn about all commands
@@ -62,17 +62,17 @@ Launches a full interactive menu — no need to remember command names.
 
 ---
 
-### `qnlabs init`
+### `qode init`
 
-Initializes `qnlabs.json` in the current directory. Prompts you to add one or more GitHub sources. Automatically detects whether a `src/` directory exists and sets the appropriate default target.
+Initializes `qode.json` in the current directory. Prompts you to add one or more GitHub sources. Automatically detects whether a `src/` directory exists and sets the appropriate default target.
 
 ```bash
-qnlabs init
+qode init
 ```
 
 ---
 
-### `qnlabs add`
+### `qode add`
 
 Pull files from your configured sources into the project.
 
@@ -80,15 +80,15 @@ Pull files from your configured sources into the project.
 - Choose one source or multiple sources in a single session
 - Select individual files, an entire directory, or everything
 - Files are written to `src/` if it exists, otherwise project root
-- All downloads tracked in `qnlabs.json`
+- All downloads tracked in `qode.json`
 
 ```bash
-qnlabs add
+qode add
 ```
 
 ---
 
-### `qnlabs addx [owner/repo] [--token <PAT>]`
+### `qode addx [owner/repo] [--token <PAT>]`
 
 One-shot fetch from **any** GitHub repo without saving it to your config. Great for:
 
@@ -98,34 +98,34 @@ One-shot fetch from **any** GitHub repo without saving it to your config. Great 
 
 ```bash
 # Interactive mode
-qnlabs addx
+qode addx
 
 # Pass repo directly
-qnlabs addx qamarqonlabs/ui-kit
+qode addx qamarqonlabs/ui-kit
 
 # Private repo
-qnlabs addx myorg/private-lib --token ghp_...
+qode addx myorg/private-lib --token ghp_...
 ```
 
-Does **not** modify `qnlabs.json`.
+Does **not** modify `qode.json`.
 
 ---
 
-### `qnlabs sources [subcommand]`
+### `qode sources [subcommand]`
 
 Manage your registered GitHub sources.
 
 ```bash
-qnlabs sources          # interactive menu
-qnlabs sources list     # list all registered sources
-qnlabs sources add      # add a new source
-qnlabs sources remove   # remove a source
-qnlabs sources edit     # update alias, token, or visibility
+qode sources          # interactive menu
+qode sources list     # list all registered sources
+qode sources add      # add a new source
+qode sources remove   # remove a source
+qode sources edit     # update alias, token, or visibility
 ```
 
 ---
 
-### `qnlabs status`
+### `qode status`
 
 Shows a full project health report:
 
@@ -135,18 +135,18 @@ Shows a full project health report:
 - Whether each file still exists on disk (`✓` / `✗ missing`)
 
 ```bash
-qnlabs status
+qode status
 ```
 
 ---
 
-### `qnlabs help`
+### `qode help`
 
 Interactive help. Select any command to get its full usage and description.
 
 ---
 
-## qnlabs.json format
+## qode.json format
 
 ```json
 {
@@ -194,11 +194,11 @@ github:myorg/private-repo
 
 | Scenario | Command |
 |---|---|
-| Pull shared components into a new project | `qnlabs add` |
-| Grab a config file from any public repo | `qnlabs addx` |
-| Update a team member's private token | `qnlabs sources edit` |
-| See what files you've pulled and from where | `qnlabs status` |
-| Start fresh on a new project | `qnlabs init` |
+| Pull shared components into a new project | `qode add` |
+| Grab a config file from any public repo | `qode addx` |
+| Update a team member's private token | `qode sources edit` |
+| See what files you've pulled and from where | `qode status` |
+| Start fresh on a new project | `qode init` |
 
 ---
 

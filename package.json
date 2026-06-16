@@ -1,9 +1,9 @@
 {
-  "name": "qnlabs",
-  "version": "0.3.4",
+  "name": "@qamarqonlabs/qode",
+  "version": "0.3.5",
   "description": "GitHub-based file distribution CLI — pull any file from any repo directly into your project",
   "bin": {
-    "qnlabs": "./dist/index.js"
+    "qode": "./dist/index.js"
   },
   "files": [
     "dist"
@@ -20,7 +20,7 @@
     "commander": "^12.0.0",
     "fs-extra": "^11.2.0",
     "picocolors": "^1.0.1",
-    "qnlabs": ".",
+    "qode": ".",
     "typescript": "^6.0.3"
   },
   "engines": {
@@ -37,10 +37,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/qamarqonlabsofficial/qnlabs"
+    "url": "https://github.com/qamarqonlabsofficial/qode"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "tsup": "^8.5.1"
-  }
+  },
+  "homepage": "https://qamarqonlabs.com/experiments/qode"
 }

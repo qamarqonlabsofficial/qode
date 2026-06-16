@@ -13,7 +13,7 @@ import { AddSources } from "./helpers/init/addSources";
 import type { sourceType } from "../types/sourcetype";
 
 export async function sourcesCommand(subcommand?: string) {
-  intro(color.bgBlue(color.white(" qnlabs sources ")));
+  intro(color.bgBlue(color.white(" qode sources ")));
 
   let config;
   try {
@@ -65,7 +65,7 @@ export async function sourcesCommand(subcommand?: string) {
 async function listSources(sources: sourceType[]) {
   if (sources.length === 0) {
     note(
-      `No sources configured yet.\nRun ${color.cyan("qnlabs sources add")} to add one.`,
+      `No sources configured yet.\nRun ${color.cyan("qode sources add")} to add one.`,
       "Sources",
     );
     return;

@@ -6,20 +6,20 @@ const COMMANDS: Record<
   { summary: string; usage: string; detail: string; keys?: string[] }
 > = {
   init: {
-    summary: "Set up qnlabs in a project",
-    usage: "qnlabs init",
+    summary: "Set up qode in a project",
+    usage: "qode init",
     detail: [
-      "Creates qnlabs.json in the current directory.",
+      "Creates qode.json in the current directory.",
       "Walks you through registering one or more GitHub sources (public or",
       "private). Automatically detects whether a src/ directory exists and",
       "sets it as the default download target — no extra config needed.",
       "",
-      "Run this once per project before using qnlabs add.",
+      "Run this once per project before using qode add.",
     ].join("\n"),
   },
   add: {
     summary: "Pull files from your configured sources",
-    usage: "qnlabs add",
+    usage: "qode add",
     detail: [
       "Opens an interactive file browser across your registered sources.",
       "Choose one source or multiple sources in a single session.",
@@ -40,51 +40,51 @@ const COMMANDS: Record<
       "  enter         confirm selection",
       "  esc           cancel",
       "",
-      "All downloads are tracked in qnlabs.json.",
+      "All downloads are tracked in qode.json.",
     ].join("\n"),
   },
   addx: {
     summary: "One-shot fetch from any repo (no config needed)",
-    usage: "qnlabs addx [owner/repo] [--token ghp_...]",
+    usage: "qode addx [owner/repo] [--token ghp_...]",
     detail: [
-      "Fetch files from any GitHub repo without touching qnlabs.json.",
+      "Fetch files from any GitHub repo without touching qode.json.",
       "Uses the same paged file selector as `add`.",
       "",
       "Examples:",
-      "  qnlabs addx                              fully interactive",
-      "  qnlabs addx shadcn-ui/ui                 jump to file selection",
-      "  qnlabs addx myorg/private --token ghp_   private repo",
+      "  qode addx                              fully interactive",
+      "  qode addx shadcn-ui/ui                 jump to file selection",
+      "  qode addx myorg/private --token ghp_   private repo",
       "",
       "Great for:",
       "  · Grabbing a file from any open source project",
       "  · Trying something before committing it to your config",
       "  · One-off pulls on machines where you don't want a config trail",
       "",
-      "Does not write to qnlabs.json. Nothing is tracked.",
+      "Does not write to qode.json. Nothing is tracked.",
     ].join("\n"),
   },
   sources: {
     summary: "Manage registered GitHub sources",
-    usage: "qnlabs sources [list|add|remove|edit]",
+    usage: "qode sources [list|add|remove|edit]",
     detail: [
       "View, add, remove, or edit your registered GitHub sources.",
       "",
       "Subcommands (all optional — omitting opens an interactive menu):",
-      "  qnlabs sources list     show all registered sources",
-      "  qnlabs sources add      register a new source",
-      "  qnlabs sources remove   delete a source",
-      "  qnlabs sources edit     update alias, token, or visibility",
+      "  qode sources list     show all registered sources",
+      "  qode sources add      register a new source",
+      "  qode sources remove   delete a source",
+      "  qode sources edit     update alias, token, or visibility",
       "",
       "Each source stores:",
       "  · Repo path  (github:owner/repo)",
       "  · Visibility (public or private)",
-      "  · Auth token (PAT, stored only in qnlabs.json — never sent elsewhere)",
+      "  · Auth token (PAT, stored only in qode.json — never sent elsewhere)",
       "  · Alias      (optional friendly name shown in menus)",
     ].join("\n"),
   },
   status: {
     summary: "Show project health and tracked files",
-    usage: "qnlabs status",
+    usage: "qode status",
     detail: [
       "Prints a full report of the current project:",
       "  · Number of registered sources",
@@ -92,35 +92,35 @@ const COMMANDS: Record<
       "  · Whether each file still exists on disk (✓ present / ✗ missing)",
       "  · The timestamp of when each file was pulled",
       "",
-      "Commit qnlabs.json so your team always knows what came from where.",
+      "Commit qode.json so your team always knows what came from where.",
     ].join("\n"),
   },
   alias: {
     summary: "Lets you add aliases to your shell profile",
-    usage: "qnlabs alias [alias] [command]",
+    usage: "qode alias [alias] [command]",
     detail: [
       "lets you add aliases to your shell whether its windows linux",
       "(many shells) mac or whatever",
       `Examples:
-  $ qnlabs alias ll "ls -la"
-  $ qnlabs alias gst "git status" -s zsh
-  $ qnlabs alias serve "npx serve ." -s bash -f ~/.bashrc -y
-  $ qnlabs alias k kubectl -s zsh -yo`,
+  $ qode alias ll "ls -la"
+  $ qode alias gst "git status" -s zsh
+  $ qode alias serve "npx serve ." -s bash -f ~/.bashrc -y
+  $ qode alias k kubectl -s zsh -yo`,
     ].join("\n"),
   },
   help: {
     summary: "Show this help",
-    usage: "qnlabs help",
+    usage: "qode help",
     detail: "Interactive command guide. You're looking at it.",
   },
 };
 
 export default async function helpCommand() {
-  intro(color.bgCyan(color.black(" qnlabs — help ")));
+  intro(color.bgCyan(color.black(" qode — help ")));
 
   note(
     [
-      color.bold("qnlabs") + " — GitHub-based file distribution CLI.",
+      color.bold("qode") + " — GitHub-based file distribution CLI.",
       "",
       "Pull any file from any GitHub repo directly into your project.",
       "Tracks what you pulled, from where, and when. Works with public",
@@ -128,7 +128,7 @@ export default async function helpCommand() {
       "",
       color.dim("Think shadcn/ui's add command — but for your own repos."),
     ].join("\n"),
-    "What is qnlabs?",
+    "What is qode?",
   );
 
   const chosen = await select({
@@ -173,6 +173,6 @@ export default async function helpCommand() {
       ].join("\n"),
       color.cyan(chosen as string),
     );
-    outro(color.dim(`Run ${color.cyan(`qnlabs ${chosen}`)} to get started.`));
+    outro(color.dim(`Run ${color.cyan(`qode ${chosen}`)} to get started.`));
   }
 }

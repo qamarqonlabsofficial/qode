@@ -12,7 +12,7 @@ import { readConfig, detectTargetBase } from "../utils/config";
 import { interactiveFileSelector } from "./helpers/fileSelector";
 
 export async function addCommand() {
-  intro(color.bgCyan(color.black(" qnlabs — add files ")));
+  intro(color.bgCyan(color.black(" qode — add files ")));
 
   let config;
   try {
@@ -27,7 +27,7 @@ export async function addCommand() {
 
   if (sources.length === 0) {
     note(
-      `No sources configured.\nRun ${color.cyan("qnlabs sources add")} to add a source first.`,
+      `No sources configured.\nRun ${color.cyan("qode sources add")} to add a source first.`,
       color.red("No sources"),
     );
     outro(color.red("Exiting."));
