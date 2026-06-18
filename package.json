@@ -1,6 +1,6 @@
 {
   "name": "@qamarqonlabs/qode",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "GitHub-based file distribution CLI — pull any file from any repo directly into your project",
   "bin": {
     "qode": "./dist/index.js"

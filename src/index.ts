@@ -9,6 +9,7 @@ import { addxCommand } from "./commands/addx";
 import { sourcesCommand } from "./commands/sources";
 import { statusCommand } from "./commands/status";
 import addAlias, { type AddAliasOptions } from "./commands/addAlias";
+import { addSnippetCommand } from "./commands/addSnippet";
 
 const program = new Command();
 
@@ -97,6 +98,14 @@ program
     await statusCommand();
   });
 
+// ─── addSnippet ─────────────────────────────────────────────────────────────────
+program
+  .command("snippet [subcommand]")
+  .description("Show project status, sources, and tracked files")
+  .action(async (subcommand) => {
+    await addSnippetCommand(subcommand);
+  });
+
 // ─── help ───────────────────────────────────────────────────────────────────
 program
   .command("help")
@@ -144,6 +153,10 @@ if (process.argv.length <= 2) {
           label: `${color.yellow("alias")}       Add any alias on any operating system`,
         },
         {
+          value: "snippet",
+          label: `${color.magenta("snippet")}         add global or local snippets`,
+        },
+        {
           value: "help",
           label: `${color.dim("help")}          Learn about all commands`,
         },
@@ -176,6 +189,9 @@ if (process.argv.length <= 2) {
         break;
       case "alias":
         await addAlias();
+        break;
+      case "snippet":
+        await addSnippetCommand();
         break;
     }
   })();
